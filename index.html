@@ -179,6 +179,7 @@
 
   .hero-visual { width: 100%; }
   .hero-visual img { width: 100%; height: auto; display: block; }
+  .hero-visual-caption { display: none; }
 
   /* ─── FORM CARD ─── */
   .form-card {
@@ -421,6 +422,10 @@
     .wrap { padding: 0 18px; }
     .hero-grid { padding: 28px 18px 32px; }
     .hero-visual { margin-top: 6px; margin-bottom: 6px; }
+    .hero-visual-caption {
+      display: block; font-style: italic; text-align: center;
+      font-size: 14.5px; color: rgba(255,255,255,.78); margin-top: 2px;
+    }
     .hero-headline { font-size: 27px; }
     .hero-subline { font-size: 16px; margin-left: auto; margin-right: auto; }
     .hero-subline.subline-desktop { display: none; }
@@ -509,6 +514,7 @@
         <source media="(max-width: 980px)" srcset="assets/hero-visual-mobile.png" />
         <img src="assets/hero-visual.png" alt="White double-hung and casement replacement windows" />
       </picture>
+      <p class="hero-visual-caption">Over 1,000 color and style combinations available</p>
     </div>
   </div>
 </section>
