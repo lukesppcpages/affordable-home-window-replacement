@@ -201,14 +201,38 @@
     transition: border-color .18s, box-shadow .18s;
     min-height: 48px;
   }
-  .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2355635B' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 34px; }
+  .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235B6472' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 34px; }
+  .field select:invalid { color: #A6B3AC; }
   .field input::placeholder { color: #A6B3AC; }
   .field input:focus, .field select:focus { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(29,46,74,.14); }
   .field.has-error input, .field.has-error select { border-color: var(--danger); }
+  .field.has-error .choice-option { border-color: var(--danger); }
   .field-error { display: none; font-size: 12px; color: var(--danger); margin-top: 6px; font-weight: 600; }
   .field.has-error .field-error { display: block; }
 
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .field-label { display: block; font-size: 14px; font-weight: 700; color: var(--forest-950); margin-bottom: 10px; }
+
+  .choice-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .choice-option {
+    display: flex; align-items: center; gap: 9px;
+    border: 1.5px solid var(--line); border-radius: 10px;
+    padding: 12px 16px; cursor: pointer; flex: 1; min-width: 120px;
+    font-size: 14.5px; font-weight: 600; color: var(--ink);
+    transition: border-color .15s, background .15s;
+  }
+  .choice-option:has(input:checked) { border-color: var(--forest); background: var(--forest-50); }
+  .choice-option input[type="radio"] {
+    appearance: none; -webkit-appearance: none;
+    width: 18px; height: 18px; min-height: 0; padding: 0; border-radius: 50%;
+    border: 2px solid var(--line); flex-shrink: 0; position: relative; margin: 0;
+    transition: border-color .15s;
+  }
+  .choice-option input[type="radio"]:checked { border-color: var(--forest); }
+  .choice-option input[type="radio"]:checked::after {
+    content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--forest);
+  }
 
   .btn-submit-full {
     width: 100%;
@@ -395,7 +419,8 @@
     section.section { padding: 60px 0; }
     .header-inner { padding: 0 18px; }
     .wrap { padding: 0 18px; }
-    .hero-grid { padding: 28px 18px 48px; }
+    .hero-grid { padding: 28px 18px 24px; }
+    .hero-visual { margin-top: -12px; margin-bottom: -8px; }
     .hero-headline { font-size: 27px; }
     .hero-subline { font-size: 16px; margin-left: auto; margin-right: auto; }
     .hero-subline.subline-desktop { display: none; }
@@ -427,7 +452,7 @@
     .callout-item { font-size: 12.5px; }
     .callout-item:nth-child(3) { display: none; }
     .field-row { grid-template-columns: 1fr; }
-    .field-row.field-name-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .field-row.field-name-row, .field-row.field-contact-row { grid-template-columns: 1fr 1fr; gap: 10px; }
   }
 </style>
 </head>
@@ -480,7 +505,10 @@
     </div>
 
     <div class="hero-visual">
-      <img src="assets/hero-visual.png" alt="White double-hung and casement replacement windows" />
+      <picture>
+        <source media="(max-width: 980px)" srcset="assets/hero-visual-mobile.png" />
+        <img src="assets/hero-visual.png" alt="White double-hung and casement replacement windows" />
+      </picture>
     </div>
   </div>
 </section>
@@ -720,29 +748,81 @@
           <input type="hidden" name="utm_campaign" id="utmCampaign" />
           <input type="hidden" name="gclid" id="utmGclid" />
 
+          <div class="field">
+            <label class="field-label">Are you a homeowner?</label>
+            <div class="choice-group">
+              <label class="choice-option">
+                <input type="radio" name="is_homeowner" value="yes" required />
+                <span>Yes</span>
+              </label>
+              <label class="choice-option">
+                <input type="radio" name="is_homeowner" value="no" required />
+                <span>No</span>
+              </label>
+            </div>
+            <span class="field-error">Please select an option.</span>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="f-window-age">How old are your windows?</label>
+            <select id="f-window-age" name="window_age" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="lt-10">Less than 10 years</option>
+              <option value="10-15">10-15 years</option>
+              <option value="15-20">15-20 years</option>
+              <option value="20-plus">20 years or older</option>
+              <option value="not-sure">I'm not sure</option>
+            </select>
+            <span class="field-error">Please select an option.</span>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Are you looking to replace 4 or more windows?</label>
+            <div class="choice-group">
+              <label class="choice-option">
+                <input type="radio" name="replace_4plus" value="yes" required />
+                <span>Yes</span>
+              </label>
+              <label class="choice-option">
+                <input type="radio" name="replace_4plus" value="no" required />
+                <span>No</span>
+              </label>
+              <label class="choice-option">
+                <input type="radio" name="replace_4plus" value="not-sure" required />
+                <span>I'm not sure</span>
+              </label>
+            </div>
+            <span class="field-error">Please select an option.</span>
+          </div>
+
           <div class="field-row field-name-row">
             <div class="field">
-              <input type="text" id="f-first" name="first_name" placeholder="First Name" aria-label="First Name" autocomplete="given-name" required />
+              <label class="field-label" for="f-first">First Name</label>
+              <input type="text" id="f-first" name="first_name" placeholder="John" aria-label="First Name" autocomplete="given-name" required />
               <span class="field-error">Please enter your first name.</span>
             </div>
             <div class="field">
-              <input type="text" id="f-last" name="last_name" placeholder="Last Name" aria-label="Last Name" autocomplete="family-name" required />
+              <label class="field-label" for="f-last">Last Name</label>
+              <input type="text" id="f-last" name="last_name" placeholder="Smith" aria-label="Last Name" autocomplete="family-name" required />
               <span class="field-error">Please enter your last name.</span>
             </div>
           </div>
 
           <div class="field">
-            <input type="email" id="f-email" name="email" placeholder="Email Address" aria-label="Email Address" autocomplete="email" required />
+            <label class="field-label" for="f-email">Email Address</label>
+            <input type="email" id="f-email" name="email" placeholder="john@email.com" aria-label="Email Address" autocomplete="email" required />
             <span class="field-error">Please enter a valid email address.</span>
           </div>
 
-          <div class="field-row">
+          <div class="field-row field-contact-row">
             <div class="field">
-              <input type="tel" id="f-phone" name="phone" placeholder="Phone Number" aria-label="Phone Number" autocomplete="tel" inputmode="tel" required />
+              <label class="field-label" for="f-phone">Phone Number</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="(555) 123-4567" aria-label="Phone Number" autocomplete="tel" inputmode="tel" required />
               <span class="field-error">Please enter a valid 10-digit phone number.</span>
             </div>
             <div class="field">
-              <input type="text" id="f-zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="Zip Code" aria-label="Zip Code" autocomplete="postal-code" required />
+              <label class="field-label" for="f-zip">Zip Code</label>
+              <input type="text" id="f-zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="90210" aria-label="Zip Code" autocomplete="postal-code" required />
               <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
             </div>
           </div>
