@@ -379,7 +379,12 @@
     .steps-grid { grid-template-columns: 1fr; gap: 36px; }
     .value-rows { display: flex; flex-direction: column; gap: 48px; }
     .value-row { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .value-row .value-media, .value-row .value-content { grid-column: auto; grid-row: auto; }
+    .value-row:nth-child(1) .value-media,
+    .value-row:nth-child(2) .value-media,
+    .value-row:nth-child(3) .value-media,
+    .value-row:nth-child(1) .value-content,
+    .value-row:nth-child(2) .value-content,
+    .value-row:nth-child(3) .value-content { grid-column: auto; grid-row: auto; }
     .testi-grid { grid-template-columns: 1fr; }
     .stat-strip { grid-template-columns: repeat(2, 1fr); }
     .stat-cell:nth-child(2) { border-right: none; }
@@ -584,7 +589,6 @@
   <div class="wrap">
     <div class="section-head center">
       <h2 class="section-title"><span class="line-bold">We Have High Standards.</span><br /><span class="line-light">Don't Settle for Less.</span></h2>
-      <p class="section-lead">How we do it, and what makes us different from going it alone.</p>
     </div>
     <div class="adv-grid">
       <div class="adv-card">
