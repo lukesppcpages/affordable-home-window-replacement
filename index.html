@@ -416,7 +416,12 @@
 
   @media (max-width: 640px) {
     section.section { padding: 60px 0; }
-    .header-inner { padding: 0 18px; }
+    .header-inner { padding: 0 18px; justify-content: center; }
+    .header-logo img { height: 30px; }
+    .header-cta { display: none; }
+    .site-header.is-scrolled .header-inner { justify-content: space-between; }
+    .site-header.is-scrolled .header-logo img { height: 24px; }
+    .site-header.is-scrolled .header-cta { display: inline-flex; }
     .wrap { padding: 0 18px; }
     .hero-grid { padding: 28px 18px 32px; }
     .hero-visual { margin-top: 6px; margin-bottom: 6px; }
@@ -479,7 +484,7 @@
         <span class="trusted-label trusted-full">Trusted by Homeowners Nationwide</span>
         <span class="trusted-label trusted-short">Trusted Nationwide</span>
       </div>
-      <h1 class="hero-headline">The Fast, Affordable Way To Upgrade Your Windows.</h1>
+      <h1 class="hero-headline">The Fast, Affordable Way To Upgrade Your Windows</h1>
       <p class="hero-subline subline-desktop">Save up to 50% on durable, energy-efficient windows from the top-rated brands with no payments for up to 2 years.</p>
       <p class="hero-subline subline-mobile">Save up to 50% on durable, energy-efficient home windows from the top-rated brands with no payments for up to 2 years.</p>
 
@@ -865,6 +870,15 @@
       var el = document.getElementById(map[key]);
       if (el && params.get(key)) el.value = params.get(key);
     });
+
+    var siteHeader = document.querySelector('.site-header');
+    if (siteHeader) {
+      var updateHeaderScroll = function () {
+        siteHeader.classList.toggle('is-scrolled', window.scrollY > 24);
+      };
+      updateHeaderScroll();
+      window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+    }
 
     var form = document.getElementById('quoteForm');
     if (!form) return;
