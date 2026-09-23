@@ -147,13 +147,15 @@
   <form id="flowForm" novalidate action="thank-you.html" method="GET">
     <input type="hidden" name="offer" value="50-off-windows" />
     <input type="hidden" name="zip" id="flowZip" />
+    <input type="hidden" name="city" id="flowCity" />
+    <input type="hidden" name="state" id="flowState" />
     <input type="hidden" name="utm_source" id="utmSource" />
     <input type="hidden" name="utm_medium" id="utmMedium" />
     <input type="hidden" name="utm_campaign" id="utmCampaign" />
     <input type="hidden" name="gclid" id="utmGclid" />
 
     <div class="flow-step" data-step="1">
-      <p class="flow-eyebrow">Step 1 of 6</p>
+      <p class="flow-eyebrow">Step 1 of 7</p>
       <h2 class="flow-question">Are you a homeowner?</h2>
       <div class="flow-choice-group">
         <label class="flow-choice-option">
@@ -172,7 +174,7 @@
     </div>
 
     <div class="flow-step" data-step="2">
-      <p class="flow-eyebrow">Step 2 of 6</p>
+      <p class="flow-eyebrow">Step 2 of 7</p>
       <h2 class="flow-question">How old are your windows?</h2>
       <div class="field">
         <select id="f-window-age" name="window_age" required>
@@ -192,7 +194,7 @@
     </div>
 
     <div class="flow-step" data-step="3">
-      <p class="flow-eyebrow">Step 3 of 6</p>
+      <p class="flow-eyebrow">Step 3 of 7</p>
       <h2 class="flow-question">Are you replacing 3+ windows?</h2>
       <div class="flow-choice-group">
         <label class="flow-choice-option">
@@ -215,7 +217,7 @@
     </div>
 
     <div class="flow-step" data-step="4">
-      <p class="flow-eyebrow">Step 4 of 6</p>
+      <p class="flow-eyebrow">Step 4 of 7</p>
       <h2 class="flow-question">What's your name?</h2>
       <div class="field-row">
         <div class="field">
@@ -234,7 +236,7 @@
     </div>
 
     <div class="flow-step" data-step="5">
-      <p class="flow-eyebrow">Step 5 of 6</p>
+      <p class="flow-eyebrow">Step 5 of 7</p>
       <h2 class="flow-question">What's your email address?</h2>
       <div class="field">
         <input type="email" id="f-email" name="email" placeholder="john@email.com" aria-label="Email Address" autocomplete="email" required />
@@ -247,11 +249,24 @@
     </div>
 
     <div class="flow-step" data-step="6">
-      <p class="flow-eyebrow">Step 6 of 6</p>
+      <p class="flow-eyebrow">Step 6 of 7</p>
       <h2 class="flow-question">What's the best number to reach you?</h2>
       <div class="field">
         <input type="tel" id="f-phone" name="phone" placeholder="(555) 123-4567" aria-label="Phone Number" autocomplete="tel" inputmode="tel" required />
         <span class="field-error">Please enter a valid 10-digit phone number.</span>
+      </div>
+      <div class="flow-actions">
+        <button type="button" class="flow-back" data-back>← Back</button>
+        <button type="button" class="btn-flow-next" data-next>Next</button>
+      </div>
+    </div>
+
+    <div class="flow-step" data-step="7">
+      <p class="flow-eyebrow">Step 7 of 7</p>
+      <h2 class="flow-question">What's the address for this project?</h2>
+      <div class="field">
+        <input type="text" id="f-address" name="street_address" placeholder="123 Main St" aria-label="Street Address" autocomplete="address-line1" required />
+        <span class="field-error">Please enter the project address.</span>
       </div>
       <div class="flow-actions">
         <button type="button" class="flow-back" data-back>← Back</button>
@@ -276,6 +291,18 @@
     if (zip) {
       document.getElementById('flowZipDisplay').textContent = zip;
       document.getElementById('flowZipChip').classList.add('is-visible');
+    }
+
+    if (zip.length === 5) {
+      fetch('https://api.zippopotam.us/us/' + zip)
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .then(function (data) {
+          var place = data && data.places && data.places[0];
+          if (!place) return;
+          document.getElementById('flowCity').value = place['place name'] || '';
+          document.getElementById('flowState').value = place['state abbreviation'] || '';
+        })
+        .catch(function () { /* silently skip — city/state stay blank */ });
     }
 
     var form = document.getElementById('flowForm');
