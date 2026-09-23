@@ -133,7 +133,7 @@
     position: relative;
     max-width: 1180px;
     margin: 0 auto;
-    padding: 104px 24px;
+    padding: 120px 24px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
     column-gap: 40px;
@@ -186,6 +186,11 @@
   .hero-form { width: 100%; }
   .hero-form .form-card { width: 100%; max-width: none; margin: 0; }
   .hero-form .fc-title { margin-bottom: 20px; }
+
+  .hero-cta-section .hero-grid { grid-template-columns: 1fr; max-width: 560px; row-gap: 28px; justify-items: center; }
+  .hero-cta-section .hero-copy { text-align: center; }
+  .hero-cta-section .hero-headline { max-width: 100%; margin-bottom: 0; }
+  .hero-cta-section .hero-form { max-width: 480px; }
 
   /* ─── TRUST BANNER ─── */
   .trust-banner { background: var(--lime); padding: 20px 0; }
@@ -489,7 +494,7 @@
     <a class="header-logo" href="#top" aria-label="Affordable Home">
       <img src="assets/logo.svg" alt="Affordable Home" />
     </a>
-    <a href="#estimate" class="btn btn-lime header-cta">Get a Free Quote</a>
+    <a href="#estimate" class="btn btn-lime header-cta">Check Zip Code</a>
   </div>
 </header>
 
@@ -795,16 +800,10 @@
 </section>
 
 <!-- ─── FINAL CTA (HERO REPLICA) ─── -->
-<section class="hero">
+<section class="hero hero-cta-section">
   <div class="hero-grid">
     <div class="hero-copy">
-      <div class="hero-rating">
-        <span class="stars">★★★★★</span>
-        <span class="trusted-label trusted-full">Trusted by Homeowners Nationwide</span>
-        <span class="trusted-label trusted-short">Trusted Nationwide</span>
-      </div>
-      <h2 class="hero-headline">Ready to Save Thousands on New Windows?</h2>
-      <p class="hero-subline">Get Up to 50% Off All Window Styles</p>
+      <h2 class="hero-headline">Ready to Save on New Windows?</h2>
     </div>
 
     <div class="hero-form">
