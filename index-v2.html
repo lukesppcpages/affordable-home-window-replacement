@@ -133,7 +133,7 @@
     position: relative;
     max-width: 1180px;
     margin: 0 auto;
-    padding: 88px 24px;
+    padding: 104px 24px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
     column-gap: 40px;
@@ -172,6 +172,13 @@
     letter-spacing: .02em;
     max-width: 540px;
     margin-bottom: 28px;
+  }
+
+  .hero-headline .line-break { display: inline; }
+
+  @media (min-width: 981px) {
+    .hero-headline .line-break { display: block; }
+    .hero-subline { max-width: 640px; white-space: nowrap; }
   }
 
   .hero-cta { display: inline-flex; width: 377px; margin-top: 4px; font-size: 18px; padding: 20px 42px; }
@@ -494,7 +501,7 @@
         <span class="trusted-label trusted-full">Trusted by Homeowners Nationwide</span>
         <span class="trusted-label trusted-short">Trusted Nationwide</span>
       </div>
-      <h1 class="hero-headline">Save Thousands on New Windows</h1>
+      <h1 class="hero-headline">Save Thousands <span class="line-break">on New Windows</span></h1>
       <p class="hero-subline">Up to 50% Off All Window Styles</p>
     </div>
 
