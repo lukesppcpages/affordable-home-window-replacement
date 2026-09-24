@@ -192,22 +192,23 @@
     .hero-form .fc-title { display: none; }
     .hero-form .form-trust { display: none; }
     .hero-form form.zip-form {
-      display: flex; align-items: center;
+      display: flex; align-items: stretch;
+      height: 56px;
       background: var(--paper);
       border-radius: 14px;
-      padding: 6px;
+      overflow: hidden;
       box-shadow: 0 18px 40px rgba(16,25,41,.3);
     }
     .hero-form .field { flex: 1; margin-bottom: 0; position: relative; }
     .hero-form .field input {
-      height: 48px; border: none; background: transparent;
+      height: 100%; width: 100%; border: none; background: transparent;
       text-align: left; padding-left: 20px;
     }
     .hero-form .field .field-error { position: absolute; top: 100%; left: 20px; margin-top: 6px; }
     .hero-form .btn-submit-full {
       display: inline-flex; align-items: center; justify-content: center;
-      width: auto; height: 48px; flex-shrink: 0; margin-top: 0;
-      border-radius: 10px; padding: 0 28px;
+      width: auto; flex-shrink: 0; margin-top: 0;
+      border-radius: 0; padding: 0 28px;
     }
   }
 
@@ -219,7 +220,7 @@
 
   .hero-cta-section .hero-grid { grid-template-columns: 1fr; max-width: 620px; row-gap: 28px; justify-items: center; }
   .hero-cta-section .hero-copy { text-align: center; }
-  .hero-cta-section .hero-headline { max-width: 100%; margin-bottom: 0; }
+  .hero-cta-section .hero-headline { max-width: 100%; margin-bottom: 14px; }
 
   /* ─── TRUST BANNER ─── */
   .trust-banner { background: var(--lime); padding: 20px 0; }
@@ -494,22 +495,23 @@
     .hero-form .fc-title { display: none; }
     .hero-form .form-trust { display: none; }
     .hero-form form.zip-form {
-      display: flex; align-items: center;
+      display: flex; align-items: stretch;
+      height: 52px;
       background: var(--paper);
       border-radius: 12px;
-      padding: 5px;
+      overflow: hidden;
       box-shadow: 0 14px 34px rgba(16,25,41,.3);
     }
     .hero-form .field { flex: 1; margin-bottom: 0; position: relative; }
     .hero-form .field input {
-      height: 44px; border: none; background: transparent;
+      height: 100%; width: 100%; border: none; background: transparent;
       text-align: left; padding-left: 16px; font-size: 14px;
     }
     .hero-form .field .field-error { position: absolute; top: 100%; left: 16px; margin-top: 6px; }
     .hero-form .btn-submit-full {
       display: inline-flex; align-items: center; justify-content: center;
-      width: auto; height: 44px; flex-shrink: 0; margin-top: 0;
-      border-radius: 9px; padding: 0 18px; font-size: 14px;
+      width: auto; flex-shrink: 0; margin-top: 0;
+      border-radius: 0; padding: 0 18px; font-size: 14px;
     }
 
     .btn-quote { width: 100%; }
@@ -560,7 +562,7 @@
         <span class="trusted-label trusted-short">Trusted Nationwide</span>
       </div>
       <h1 class="hero-headline">Get Up to 50% Off All Window Styles</h1>
-      <p class="hero-subline">Enter your zip code to see if you qualify for savings. It only takes a minute!</p>
+      <p class="hero-subline">Enter your zip code to see if you qualify to save!</p>
     </div>
 
     <div class="hero-form" id="estimate">
@@ -579,7 +581,7 @@
               <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
             </div>
 
-            <button type="submit" class="btn-submit-full">See If I Qualify</button>
+            <button type="submit" class="btn-submit-full">Check Zip Code</button>
           </form>
 
           <p class="form-trust">Takes less than 60 seconds. No obligation.</p>
@@ -673,7 +675,7 @@
       </div>
     </div>
 
-    <a href="#estimate" class="btn btn-lime btn-quote value-full-cta">Save Now</a>
+    <a href="#estimate" class="btn btn-lime btn-quote value-full-cta">Qualify & Save</a>
   </div>
 </section>
 
@@ -727,7 +729,7 @@
     </div>
 
     <div class="section-cta">
-      <a href="#estimate" class="btn btn-lime btn-quote">Save Now</a>
+      <a href="#estimate" class="btn btn-lime btn-quote">Qualify & Save</a>
     </div>
   </div>
 </section>
@@ -783,7 +785,7 @@
       </div>
     </div>
     <div class="section-cta">
-      <a href="#estimate" class="btn btn-lime btn-quote">Save Now</a>
+      <a href="#estimate" class="btn btn-lime btn-quote">Qualify & Save</a>
     </div>
   </div>
 </section>
@@ -812,7 +814,7 @@
       </div>
     </div>
     <div class="section-cta">
-      <a href="#estimate" class="btn btn-lime btn-quote">Save Now</a>
+      <a href="#estimate" class="btn btn-lime btn-quote">Qualify & Save</a>
     </div>
   </div>
 </section>
@@ -846,7 +848,7 @@
       </details>
     </div>
     <div class="faq-cta">
-      <a href="#estimate" class="btn btn-lime btn-quote">Save Now</a>
+      <a href="#estimate" class="btn btn-lime btn-quote">Qualify & Save</a>
     </div>
   </div>
 </section>
@@ -856,7 +858,7 @@
   <div class="hero-grid">
     <div class="hero-copy">
       <h2 class="hero-headline">Ready to Save <span class="line-break">on New Windows?</span></h2>
-      <p class="hero-subline">Enter your zip code to see if you qualify for savings. It only takes a minute!</p>
+      <p class="hero-subline">Enter your zip code to see if you qualify to save!</p>
     </div>
 
     <div class="hero-form">
@@ -875,7 +877,7 @@
               <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
             </div>
 
-            <button type="submit" class="btn-submit-full">Check My Zip Code</button>
+            <button type="submit" class="btn-submit-full">Check Zip Code</button>
           </form>
 
           <p class="form-trust">Takes less than 60 seconds. No obligation.</p>
