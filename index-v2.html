@@ -173,6 +173,7 @@
   }
 
   .hero-headline .line-break { display: inline; }
+  .hero-headline .headline-mobile-text { display: none; }
 
   @media (min-width: 981px) {
     .hero-headline .line-break { display: block; }
@@ -486,7 +487,9 @@
     .hero-copy { display: contents; text-align: center; }
     .hero-rating { order: 1; }
     .hero-headline { order: 2; font-size: 27px; margin-bottom: 14px; }
-    .hero:not(.hero-cta-section) .hero-headline { font-size: 21px; white-space: nowrap; }
+    .hero:not(.hero-cta-section) .hero-headline { font-size: 21px; font-weight: 700; white-space: nowrap; }
+    .hero:not(.hero-cta-section) .headline-desktop-text { display: none; }
+    .hero:not(.hero-cta-section) .headline-mobile-text { display: inline; }
     .hero-cta-section .hero-headline { margin-bottom: 6px; }
     .hero-subline { order: 3; margin-left: auto; margin-right: auto; margin-bottom: 24px; }
     .hero-form { order: 4; margin-top: 0; }
@@ -564,7 +567,7 @@
         <span class="trusted-label trusted-full">Trusted by Homeowners Nationwide</span>
         <span class="trusted-label trusted-short">Trusted Nationwide</span>
       </div>
-      <h1 class="hero-headline">Up to 50% Off All Windows</h1>
+      <h1 class="hero-headline"><span class="headline-desktop-text">Up to 50% Off All Window Styles</span><span class="headline-mobile-text">Up to 50% Off All Windows</span></h1>
       <p class="hero-subline">Enter your zip code to see if you qualify. It only takes a minute!</p>
     </div>
 
