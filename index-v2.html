@@ -155,7 +155,7 @@
   .hero-headline {
     font-family: var(--font-hero);
     font-size: clamp(34px, 4.4vw, 56px);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.1;
     color: var(--paper);
     letter-spacing: -.005em;
@@ -218,7 +218,7 @@
   .hero-form .form-card { width: 100%; max-width: none; margin: 0; }
   .hero-form .fc-title { margin-bottom: 20px; }
 
-  .hero-cta-section .hero-grid { grid-template-columns: 1fr; max-width: 620px; row-gap: 28px; justify-items: center; }
+  .hero-cta-section .hero-grid { grid-template-columns: 1fr; max-width: 780px; row-gap: 28px; justify-items: center; }
   .hero-cta-section .hero-copy { text-align: center; }
   .hero-cta-section .hero-headline { max-width: 100%; margin-bottom: 14px; }
 
@@ -378,8 +378,9 @@
     font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #000000; margin-bottom: 6px;
     line-height: 1.6; display: flex; align-items: center; justify-content: center; min-height: 1.6em;
   }
-  .stat-figure-icon img { height: 0.82em; width: auto; }
+  .stat-figure-icon img { height: 0.82em; width: auto; filter: brightness(0); }
   .stat-label { font-size: 12.5px; font-weight: 700; color: var(--stone); text-transform: uppercase; letter-spacing: .04em; }
+  .stat-cell:nth-child(2) .stat-label { color: #000000; }
 
   /* ─── VALUE PROPS (alternating rows) ─── */
   .value-head { max-width: 720px; margin: 0 auto 64px; text-align: center; }
@@ -561,7 +562,7 @@
         <span class="trusted-label trusted-full">Trusted by Homeowners Nationwide</span>
         <span class="trusted-label trusted-short">Trusted Nationwide</span>
       </div>
-      <h1 class="hero-headline">Get Up to 50% Off All Window Styles</h1>
+      <h1 class="hero-headline">Up to 50% Off All Window Styles</h1>
       <p class="hero-subline">Enter your zip code to see if you qualify. It only takes a minute!</p>
     </div>
 
@@ -727,10 +728,6 @@
         <div class="testi-loc">Frederick, MD</div>
       </div>
     </div>
-
-    <div class="section-cta">
-      <a href="#top" class="btn btn-lime btn-quote">Qualify & Save</a>
-    </div>
   </div>
 </section>
 
@@ -809,12 +806,9 @@
       </div>
       <div class="step-item">
         <div class="step-num" aria-hidden="true">3</div>
-        <h3>Get Your Free Estimate</h3>
-        <p>Receive an exact, itemized quote — no pressure, no obligation.</p>
+        <h3>Claim Your Savings</h3>
+        <p>Receive a custom, discounted estimate — no pressure, no obligation.</p>
       </div>
-    </div>
-    <div class="section-cta">
-      <a href="#top" class="btn btn-lime btn-quote">Qualify & Save</a>
     </div>
   </div>
 </section>
@@ -846,9 +840,6 @@
         <summary>How does the "no payments for 2 years" offer work?<span class="faq-plus">+</span></summary>
         <div class="faq-body">Qualified homeowners can finance their project and defer payments for up to 2 years. Your local pro will walk through exact terms and eligibility as part of your free estimate.</div>
       </details>
-    </div>
-    <div class="faq-cta">
-      <a href="#top" class="btn btn-lime btn-quote">Qualify & Save</a>
     </div>
   </div>
 </section>
