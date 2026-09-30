@@ -163,6 +163,11 @@
     color: var(--paper); margin-bottom: 16px; max-width: 620px;
   }
   .promo-headline-break { display: inline; }
+  .promo-subline {
+    font-family: var(--font-hero);
+    font-size: 18px; font-weight: 400; line-height: 1.4;
+    color: var(--paper); max-width: 560px;
+  }
   @media (min-width: 641px) {
     .promo-eyebrow { font-size: 14px; }
     .brand-track img { height: 42px; width: 158px; margin-right: 66px; }
@@ -216,7 +221,8 @@
     .promo-eyebrow { display: inline-flex; justify-content: center; order: 1; margin-bottom: 0; }
     .promo-headline { font-size: 30px; order: 2; margin-bottom: 10px; }
     .promo-headline-break { display: block; }
-    .quote-card { order: 3; }
+    .promo-subline { order: 3; font-size: 16px; max-width: 100%; }
+    .quote-card { order: 4; }
   }
 
   /* ─── HERO ─── */
@@ -280,12 +286,7 @@
   .hero-cta-section .hero-headline { max-width: 100%; margin-bottom: 14px; }
 
   /* ─── TRUST BANNER ─── */
-  .trust-banner { background: #2F4679; padding: 28px 0 32px; }
-  .trust-partners-title {
-    text-align: center; color: #FFFFFF; opacity: .85;
-    font-family: var(--font-display); font-size: 13px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .08em; margin-bottom: 30px;
-  }
+  .trust-banner { background: #2F4679; padding: 30px 0; }
   .trust-banner .brand-marquee { max-width: 900px; margin: 0 auto; }
   .trust-banner .brand-track { animation-duration: 32s; }
 
@@ -544,7 +545,7 @@
     }
     .hero-rating .trusted-full { display: none; }
     .hero-rating .trusted-short { display: inline; }
-    .trust-banner { padding: 24px 0 26px; }
+    .trust-banner { padding: 24px 0; }
     .field-row { grid-template-columns: 1fr; }
     .field-row.field-name-row, .field-row.field-contact-row { grid-template-columns: 1fr 1fr; gap: 10px; }
   }
@@ -571,6 +572,7 @@
     <div class="promo-copy">
       <div class="promo-eyebrow"><span class="promo-stars">★★★★★</span> Trusted Nationwide</div>
       <h1 class="promo-headline">Save Up To 50% Off <span class="promo-headline-break">All Window Styles</span></h1>
+      <p class="promo-subline">Get matched with the best offer in less than a minute!</p>
     </div>
 
     <div class="quote-card" id="estimate">
@@ -670,7 +672,6 @@
 <!-- ─── TRUST BANNER ─── -->
 <section class="trust-banner">
   <div class="wrap">
-    <h3 class="trust-partners-title">Our Featured Partners</h3>
     <div class="brand-marquee trust-marquee" aria-label="Trusted local window installer brands">
       <div class="brand-track">
         <img src="assets/logos-v3/window-nation.svg" alt="" aria-hidden="true" />
