@@ -210,9 +210,11 @@
 
   @media (max-width: 640px) {
     .hero-video-grid { padding: 32px 18px 48px; gap: 20px; }
-    .promo-headline { font-size: 30px; }
-    .promo-eyebrow { display: none; }
-    .promo-copy { text-align: center; }
+    .promo-copy { display: contents; text-align: center; }
+    .promo-eyebrow { display: inline-flex; justify-content: center; order: 1; margin-bottom: 0; }
+    .promo-headline { font-size: 30px; order: 2; margin-bottom: 0; }
+    .quote-card { order: 3; }
+    .brand-marquee { order: 4; margin: 0 auto; }
   }
 
   /* ─── HERO ─── */
@@ -410,10 +412,21 @@
     color: var(--paper); letter-spacing: -.01em;
   }
   .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-  .step-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .step-item { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+  .step-item:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    top: 28px; left: 100%;
+    width: 40px;
+    text-align: center;
+    transform: translateY(-50%);
+    color: #FFFFFF;
+    font-size: 26px; font-weight: 700; line-height: 1;
+    pointer-events: none;
+  }
   .step-num {
     width: 56px; height: 56px; border-radius: 50%;
-    background: var(--lime); color: #000000;
+    background: var(--lime); color: #FFFFFF;
     display: grid; place-items: center;
     font-weight: 800; font-size: 20px; margin-bottom: 20px;
   }
@@ -515,6 +528,7 @@
     .hero-form { max-width: 480px; margin: 0 auto; }
     .adv-grid { grid-template-columns: 1fr; gap: 32px; }
     .steps-grid { grid-template-columns: 1fr; gap: 36px; }
+    .step-item:not(:last-child)::after { content: none; }
     .value-rows { display: flex; flex-direction: column; gap: 48px; }
     .value-row { display: grid; grid-template-columns: 1fr; gap: 20px; }
     .value-row:nth-child(1) .value-media,
