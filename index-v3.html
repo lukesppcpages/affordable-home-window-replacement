@@ -125,7 +125,7 @@
   .hero-video-section { position: relative; background: #000; overflow: hidden; }
   .hero-bg-media {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; object-position: center 30%; transform: scale(1.12); z-index: 0;
+    object-fit: cover; object-position: center 30%; transform: scale(1.02); z-index: 0;
   }
   .hero-video-overlay {
     position: absolute; inset: 0; z-index: 1;
@@ -148,7 +148,7 @@
     display: flex; align-items: center; width: max-content;
     animation: brandScroll 26s linear infinite; will-change: transform; backface-visibility: hidden;
   }
-  .brand-track img { height: 26px; width: 100px; margin-right: 44px; object-fit: contain; filter: brightness(0) invert(1); opacity: .85; flex-shrink: 0; }
+  .brand-track img { height: 32px; width: 120px; margin-right: 48px; object-fit: contain; filter: brightness(0) invert(1); opacity: .85; flex-shrink: 0; }
   @keyframes brandScroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
 
   .promo-eyebrow {
@@ -165,7 +165,7 @@
   .promo-headline-break { display: inline; }
   @media (min-width: 641px) {
     .promo-eyebrow { font-size: 14px; }
-    .brand-track img { height: 34px; width: 130px; margin-right: 57px; }
+    .brand-track img { height: 42px; width: 158px; margin-right: 66px; }
   }
 
   .quote-card-body { padding: 30px 24px 24px; }
@@ -581,7 +581,10 @@
 
 <!-- ─── HERO (VIDEO) ─── -->
 <section class="hero-video-section" id="top">
-  <img class="hero-bg-media" src="assets/hero-image-v3.png" alt="" aria-hidden="true" />
+  <picture>
+    <source media="(max-width: 640px)" srcset="assets/hero-bg-v3.png" />
+    <img class="hero-bg-media" src="assets/hero-image-v3.png" alt="" aria-hidden="true" />
+  </picture>
   <div class="hero-video-overlay"></div>
   <div class="hero-video-grid">
     <div class="promo-copy">
