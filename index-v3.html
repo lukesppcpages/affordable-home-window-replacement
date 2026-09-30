@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -35,7 +35,7 @@
     --danger: #C24B3F;
     --font-display: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-hero: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-hero: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
     --shadow-card: 0 1px 2px rgba(16,25,41,.05), 0 14px 34px rgba(16,25,41,.08);
     --shadow-float: 0 30px 70px rgba(16,25,41,.32);
   }
@@ -149,14 +149,17 @@
     -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
     mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
   }
-  .brand-track { display: flex; align-items: center; width: max-content; gap: 44px; animation: brandScroll 26s linear infinite; }
-  .brand-track img { height: 26px; width: auto; max-width: 120px; object-fit: contain; filter: brightness(0) invert(1); opacity: .85; flex-shrink: 0; }
-  @keyframes brandScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .brand-track {
+    display: flex; align-items: center; width: max-content;
+    animation: brandScroll 26s linear infinite; will-change: transform; backface-visibility: hidden;
+  }
+  .brand-track img { height: 26px; width: 100px; margin-right: 44px; object-fit: contain; filter: brightness(0) invert(1); opacity: .85; flex-shrink: 0; }
+  @keyframes brandScroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
 
   .promo-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
-    color: var(--paper); font-size: 12.5px; font-weight: 700;
-    letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px;
+    color: var(--paper); font-size: 13px; font-weight: 700;
+    letter-spacing: .02em; margin-bottom: 16px;
   }
   .promo-eyebrow .promo-stars { color: var(--gold); font-size: 15px; letter-spacing: 1px; }
   .promo-headline {
@@ -164,35 +167,39 @@
     font-size: clamp(38px, 5vw, 62px); font-weight: 700; line-height: 1.08;
     color: var(--paper); margin-bottom: 16px; max-width: 620px;
   }
+  .promo-headline-break { display: inline; }
   @media (min-width: 641px) {
     .promo-eyebrow { font-size: 14px; }
     .brand-marquee { max-width: 728px; }
-    .brand-track { gap: 57px; }
-    .brand-track img { height: 34px; max-width: 156px; }
+    .brand-track img { height: 34px; width: 130px; margin-right: 57px; }
   }
 
-  .quote-card-body { padding: 26px 26px 22px; }
-  .quote-card-title { font-family: var(--font-display); font-size: 21px; font-weight: 700; color: #000000; margin-bottom: 4px; }
+  .quote-card-body { padding: 30px 24px 24px; }
   .quote-progress { margin-bottom: 22px; }
   .qp-steps { display: flex; align-items: center; margin-bottom: 10px; }
   .qp-dot {
-    flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
-    background: var(--forest-600); color: #FFFFFF;
-    font-size: 13.5px; font-weight: 800; display: grid; place-items: center;
+    flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
+    background: #D5DAE0; color: #FFFFFF;
+    font-size: 14px; font-weight: 800; display: grid; place-items: center;
+    transition: background .2s ease;
   }
-  .qp-dot.is-active { background: var(--lime); color: #FFFFFF; }
-  .qp-line { flex: 1; height: 3px; background: var(--forest-100); margin: 0 6px; border-radius: 2px; }
-  .qp-line.is-active { background: var(--lime); }
+  .qp-dot.is-active { background: #2F4679; color: #FFFFFF; }
+  .qp-line { flex: 1; height: 3px; background: #E4E8EC; margin: 0 6px; border-radius: 2px; transition: background .2s ease; }
+  .qp-line.is-active { background: #2F4679; }
   .quote-card-trust { display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 12px; color: var(--stone); padding: 14px 20px 20px; text-align: center; }
   .quote-card .field input { text-align: left; }
 
   .quote-card .form-step { display: none; animation: qcStepIn .32s ease; }
   .quote-card .form-step.is-active { display: block; }
   @keyframes qcStepIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
-  .quote-card .fs-title { font-family: var(--font-display); font-size: 18.5px; font-weight: 700; color: #000000; margin-bottom: 18px; }
+  .quote-card .fs-title {
+    font-family: var(--font-display); font-size: 14.5px; font-weight: 800; color: #1E2530;
+    text-transform: uppercase; letter-spacing: .04em; margin-bottom: 14px;
+  }
   .quote-card .step-actions { display: flex; gap: 10px; margin-top: 6px; }
   .quote-card .btn-step {
-    border: none; border-radius: 8px; font-weight: 800; font-size: 15px;
+    border: none; border-radius: 8px; font-weight: 800; font-size: 14.5px;
+    text-transform: uppercase; letter-spacing: .02em;
     padding: 15px 18px; cursor: pointer; font-family: var(--font-body);
     transition: background .18s, transform .12s;
   }
@@ -213,6 +220,7 @@
     .promo-copy { display: contents; text-align: center; }
     .promo-eyebrow { display: inline-flex; justify-content: center; order: 1; margin-bottom: 0; }
     .promo-headline { font-size: 30px; order: 2; margin-bottom: 0; }
+    .promo-headline-break { display: block; }
     .quote-card { order: 3; }
     .brand-marquee { order: 4; margin: 0 auto; }
   }
@@ -295,7 +303,6 @@
   }
   .trust-content { display: flex; flex-direction: column; gap: 1px; }
   .trust-title { font-family: var(--font-display); font-size: 15px; font-weight: 800; color: #FFFFFF; }
-  .trust-sub { font-size: 12.5px; color: #FFFFFF; opacity: .78; }
   .trust-item-mobile-only { display: none; }
 
   /* ─── FORM CARD ─── */
@@ -606,7 +613,7 @@
   <div class="hero-video-grid">
     <div class="promo-copy">
       <div class="promo-eyebrow"><span class="promo-stars">★★★★★</span> Trusted Nationwide</div>
-      <h1 class="promo-headline">Save Up To 50% Off All Window Styles</h1>
+      <h1 class="promo-headline">Save Up To 50% Off <span class="promo-headline-break">All Window Styles</span></h1>
       <div class="brand-marquee" aria-label="Trusted local window installer brands">
         <div class="brand-track">
           <img src="assets/logos-v3/window-nation.svg" alt="" aria-hidden="true" />
@@ -627,8 +634,6 @@
 
     <div class="quote-card" id="estimate">
       <div class="quote-card-body">
-        <div class="quote-card-title">Start Your Free Window Quote</div>
-
         <div class="quote-progress">
           <div class="qp-steps">
             <div class="qp-dot is-active">1</div>
@@ -651,11 +656,11 @@
           <div class="form-step is-active" data-step="1">
             <h3 class="fs-title">Where is your project?</h3>
             <div class="field">
-              <input type="text" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="ZIP Code" aria-label="ZIP Code" autocomplete="postal-code" required />
+              <input type="text" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="Zip Code" aria-label="ZIP Code" autocomplete="postal-code" required />
               <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
             </div>
             <div class="step-actions">
-              <button type="button" class="btn-step btn-next" data-next>Continue →</button>
+              <button type="button" class="btn-step btn-next" data-next>Start Free Quote</button>
             </div>
           </div>
 
@@ -725,7 +730,6 @@
         </span>
         <span class="trust-content">
           <h3 class="trust-title">Lifetime Warranty</h3>
-          <p class="trust-sub">Peace of mind that lasts.</p>
         </span>
       </div>
       <div class="trust-item">
@@ -734,7 +738,6 @@
         </span>
         <span class="trust-content">
           <h3 class="trust-title">Fast Installation</h3>
-          <p class="trust-sub">Upgrade your home, fast.</p>
         </span>
       </div>
       <div class="trust-item">
@@ -742,8 +745,7 @@
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="13" height="13" rx="1.5"/><rect x="9" y="2" width="13" height="13" rx="1.5"/></svg>
         </span>
         <span class="trust-content">
-          <h3 class="trust-title">1,000+ Combinations</h3>
-          <p class="trust-sub">Styles and colors for every home.</p>
+          <h3 class="trust-title">1k+ Window Styles</h3>
         </span>
       </div>
       <div class="trust-item trust-item-mobile-only">
@@ -752,7 +754,6 @@
         </span>
         <span class="trust-content">
           <h3 class="trust-title">Flexible Financing</h3>
-          <p class="trust-sub">0 payments for 2 years.</p>
         </span>
       </div>
     </div>
@@ -974,8 +975,6 @@
     <div class="hero-form">
       <div class="quote-card">
         <div class="quote-card-body">
-          <div class="quote-card-title">Start Your Free Window Quote</div>
-
           <div class="quote-progress">
             <div class="qp-steps">
               <div class="qp-dot is-active">1</div>
@@ -998,11 +997,11 @@
             <div class="form-step is-active" data-step="1">
               <h3 class="fs-title">Where is your project?</h3>
               <div class="field">
-                <input type="text" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="ZIP Code" aria-label="ZIP Code" autocomplete="postal-code" required />
+                <input type="text" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="Zip Code" aria-label="ZIP Code" autocomplete="postal-code" required />
                 <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
               </div>
               <div class="step-actions">
-                <button type="button" class="btn-step btn-next" data-next>Continue →</button>
+                <button type="button" class="btn-step btn-next" data-next>Start Free Quote</button>
               </div>
             </div>
 
