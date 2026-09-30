@@ -81,6 +81,8 @@
   .btn:active { transform: translateY(1px); }
   .btn-blue { background: #2F4679; color: #FFFFFF; }
   .btn-blue:hover { background: #24365F; }
+  .btn-orange { background: var(--lime); color: #FFFFFF; }
+  .btn-orange:hover { background: var(--lime-dim); }
   .btn-outline {
     background: transparent;
     color: #000000;
@@ -138,7 +140,7 @@
     position: relative; z-index: 2;
     max-width: 1180px; margin: 0 auto; padding: 64px 24px 80px;
     display: grid; grid-template-columns: 1.05fr 440px;
-    column-gap: 56px; align-items: start;
+    column-gap: 56px; align-items: center;
   }
   .promo-copy { min-width: 0; }
   .quote-card { background: var(--paper); border-radius: 14px; box-shadow: var(--shadow-float); overflow: hidden; }
@@ -156,6 +158,7 @@
     color: var(--paper); font-size: 12.5px; font-weight: 700;
     letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px;
   }
+  .promo-eyebrow .promo-stars { color: var(--gold); font-size: 15px; letter-spacing: 1px; }
   .promo-headline {
     font-family: var(--font-hero);
     font-size: clamp(38px, 5vw, 62px); font-weight: 700; line-height: 1.08;
@@ -396,7 +399,7 @@
   .section-cta { text-align: center; margin-top: 48px; }
 
   /* ─── STEPS (dark, numbered) ─── */
-  .steps-section { background: #000000; }
+  .steps-section { background: #2F4679; }
   .steps-head { text-align: center; margin-bottom: 56px; }
   .steps-eyebrow {
     color: var(--paper); font-size: 13px; font-weight: 700;
@@ -471,7 +474,6 @@
   .testi-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 14px; }
   .testi-card blockquote { font-size: 15px; color: var(--ink); line-height: 1.75; margin-bottom: 18px; }
   .testi-name { font-size: 13.5px; font-weight: 700; color: #000000; }
-  .testi-loc { font-size: 12.5px; color: var(--stone-light); }
 
   /* ─── FAQ ─── */
   .faq-list { max-width: 760px; margin: 0 auto; }
@@ -589,8 +591,8 @@
   <div class="hero-video-overlay"></div>
   <div class="hero-video-grid">
     <div class="promo-copy">
-      <div class="promo-eyebrow">For a Limited Time</div>
-      <h1 class="promo-headline">Up To 50% Off All Window Styles</h1>
+      <div class="promo-eyebrow"><span class="promo-stars">★★★★★</span> Trusted Nationwide</div>
+      <h1 class="promo-headline">Save Up To 50% Off All Window Styles</h1>
       <div class="brand-marquee" aria-label="Trusted local window installer brands">
         <div class="brand-track">
           <img src="assets/logos-v3/window-nation.svg" alt="" aria-hidden="true" />
@@ -820,19 +822,16 @@
         <div class="testi-stars">★★★★★</div>
         <blockquote>"Our old windows were letting in so much cold air our heating bill was through the roof. Since the install, the difference is night and day."</blockquote>
         <div class="testi-name">Karen M.</div>
-        <div class="testi-loc">Rockville, MD</div>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
         <blockquote>"The quote was straightforward, no high-pressure sales. The new windows look great and the financing made it easy to say yes."</blockquote>
         <div class="testi-name">David R.</div>
-        <div class="testi-loc">Alexandria, VA</div>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
         <blockquote>"Affordable Home matched us with a local installer who was professional from the first call to the final walkthrough. Highly recommend."</blockquote>
         <div class="testi-name">Patricia L.</div>
-        <div class="testi-loc">Frederick, MD</div>
       </div>
     </div>
   </div>
@@ -889,7 +888,7 @@
       </div>
     </div>
     <div class="section-cta">
-      <a href="#top" class="btn btn-blue btn-quote">Qualify & Save</a>
+      <a href="#top" class="btn btn-orange btn-quote">Qualify & Save</a>
     </div>
   </div>
 </section>
