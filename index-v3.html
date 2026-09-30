@@ -153,7 +153,7 @@
 
   .promo-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
-    color: var(--lime); font-size: 12.5px; font-weight: 700;
+    color: var(--paper); font-size: 12.5px; font-weight: 700;
     letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px;
   }
   .promo-headline {
@@ -161,15 +161,8 @@
     font-size: clamp(32px, 4.2vw, 52px); font-weight: 700; line-height: 1.08;
     color: var(--paper); margin-bottom: 20px; max-width: 620px;
   }
-  .promo-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
-  .promo-pill {
-    display: inline-flex; align-items: center; background: #0B5498; color: var(--paper);
-    font-size: 12px; font-weight: 700; padding: 8px 14px; border-radius: 999px; white-space: nowrap;
-  }
-  .promo-pill-mobile-first { display: none; }
   @media (min-width: 641px) {
     .promo-eyebrow { font-size: 14px; }
-    .promo-pill-first, .promo-pill-install { font-size: 15px; padding: 12px 22px; }
     .brand-marquee { max-width: 728px; }
     .brand-track { gap: 57px; }
     .brand-track img { height: 34px; max-width: 156px; }
@@ -186,10 +179,25 @@
   }
   .qp-dot.is-active { background: var(--lime); color: #000000; }
   .qp-line { flex: 1; height: 3px; background: var(--forest-100); margin: 0 6px; border-radius: 2px; }
-  .qc-step-title { font-family: var(--font-display); font-size: 18.5px; font-weight: 700; color: #000000; margin-bottom: 18px; }
+  .qp-line.is-active { background: var(--lime); }
   .quote-card-trust { display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 12px; color: var(--stone); padding: 14px 20px 20px; text-align: center; }
   .quote-card .field input { text-align: left; }
-  .quote-card .btn-submit-full { border-radius: 8px; margin-top: 4px; }
+
+  .quote-card .form-step { display: none; animation: qcStepIn .32s ease; }
+  .quote-card .form-step.is-active { display: block; }
+  @keyframes qcStepIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+  .quote-card .fs-title { font-family: var(--font-display); font-size: 18.5px; font-weight: 700; color: #000000; margin-bottom: 18px; }
+  .quote-card .step-actions { display: flex; gap: 10px; margin-top: 6px; }
+  .quote-card .btn-step {
+    border: none; border-radius: 8px; font-weight: 800; font-size: 15px;
+    padding: 15px 18px; cursor: pointer; font-family: var(--font-body);
+    transition: background .18s, transform .12s;
+  }
+  .quote-card .btn-next, .quote-card .btn-submit { flex: 1; background: var(--lime); color: #000000; }
+  .quote-card .btn-next:hover, .quote-card .btn-submit:hover { background: var(--lime-dim); }
+  .quote-card .btn-back { background: var(--forest-50); color: #000000; flex: 0 0 auto; }
+  .quote-card .btn-back:hover { background: var(--forest-100); }
+  .quote-card .btn-step:active { transform: translateY(1px); }
 
   @media (max-width: 980px) {
     .hero-video-grid { grid-template-columns: 1fr; padding: 40px 20px 56px; }
@@ -202,14 +210,7 @@
     .hero-video-grid { padding: 32px 18px 48px; gap: 20px; }
     .promo-headline { font-size: 30px; }
     .promo-eyebrow { display: none; }
-    .promo-pill-first { display: none; }
     .promo-copy { text-align: center; }
-    .promo-pills { display: block; margin-bottom: 8px; }
-    .promo-pill-mobile-first, .promo-pill-install {
-      display: block; background: none; color: var(--lime); font-weight: 500;
-      font-size: 23px; text-align: center; padding: 0; border-radius: 0;
-      white-space: normal; margin-bottom: 8px;
-    }
     .brand-marquee { margin-top: 20px; }
   }
 
@@ -237,7 +238,7 @@
     gap: 10px;
     margin-bottom: 22px;
   }
-  .hero-rating .stars { color: var(--lime); font-size: 16px; letter-spacing: 2px; }
+  .hero-rating .stars { color: var(--paper); font-size: 16px; letter-spacing: 2px; }
   .hero-rating .trusted-label { font-size: 14px; font-weight: 700; color: var(--paper); white-space: nowrap; }
   .hero-rating .trusted-short { display: none; }
 
@@ -313,7 +314,7 @@
   .hero-cta-section .hero-headline { max-width: 100%; margin-bottom: 14px; }
 
   /* ─── TRUST BANNER ─── */
-  .trust-banner { background: var(--lime); padding: 20px 0; }
+  .trust-banner { background: #2F4679; padding: 20px 0; }
   .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
   .trust-item {
     display: flex; flex-direction: row; align-items: center; justify-content: center; text-align: left;
@@ -321,15 +322,15 @@
   }
   .trust-item:not(:last-child)::after {
     content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-    width: 1px; height: 36px; background: rgba(16,25,41,.15);
+    width: 1px; height: 36px; background: rgba(255,255,255,.2);
   }
   .trust-icon {
-    color: #000000; display: grid; place-items: center;
+    color: #FFFFFF; display: grid; place-items: center;
     width: 26px; height: 26px; flex-shrink: 0;
   }
   .trust-content { display: flex; flex-direction: column; gap: 1px; }
-  .trust-title { font-family: var(--font-display); font-size: 15px; font-weight: 800; color: #000000; }
-  .trust-sub { font-size: 12.5px; color: #000000; opacity: .78; }
+  .trust-title { font-family: var(--font-display); font-size: 15px; font-weight: 800; color: #FFFFFF; }
+  .trust-sub { font-size: 12.5px; color: #FFFFFF; opacity: .78; }
   .trust-item-mobile-only { display: none; }
 
   /* ─── FORM CARD ─── */
@@ -438,7 +439,7 @@
   .steps-section { background: #000000; }
   .steps-head { text-align: center; margin-bottom: 56px; }
   .steps-eyebrow {
-    color: var(--lime); font-size: 13px; font-weight: 700;
+    color: var(--paper); font-size: 13px; font-weight: 700;
     text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px;
   }
   .steps-title {
@@ -625,9 +626,9 @@
     .trust-grid { grid-template-columns: 1fr 1fr; gap: 0; }
     .trust-item {
       flex-direction: column; text-align: center; padding: 16px 10px;
-      border-bottom: 1px solid rgba(16,25,41,.15);
+      border-bottom: 1px solid rgba(255,255,255,.2);
     }
-    .trust-item:nth-child(odd) { border-right: 1px solid rgba(16,25,41,.15); }
+    .trust-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.2); }
     .trust-item:nth-child(3), .trust-item:nth-child(4) { border-bottom: none; }
     .trust-item:not(:last-child)::after { display: none; }
     .trust-content { align-items: center; }
@@ -657,11 +658,6 @@
     <div class="promo-copy">
       <div class="promo-eyebrow">For a Limited Time</div>
       <h1 class="promo-headline">Up To 50% Off All Window Styles</h1>
-      <div class="promo-pills">
-        <span class="promo-pill promo-pill-first">0 Payments for 2 Years</span>
-        <span class="promo-pill promo-pill-mobile-first">No Payments for 2 Years</span>
-        <span class="promo-pill promo-pill-install">As Fast As 1 Day Installation</span>
-      </div>
     </div>
 
     <div class="quote-card" id="estimate">
@@ -669,7 +665,7 @@
         <div class="quote-card-title">Start Your Free Window Quote</div>
 
         <div class="quote-progress">
-          <div class="qp-steps">
+          <div class="qp-steps" id="qpSteps">
             <div class="qp-dot is-active">1</div>
             <div class="qp-line"></div>
             <div class="qp-dot">2</div>
@@ -680,20 +676,69 @@
           </div>
         </div>
 
-        <h3 class="qc-step-title">Where is your project?</h3>
-        <form class="zip-form" novalidate action="quote-flow.html" method="GET">
+        <form id="heroQuoteForm" novalidate action="thank-you.html" method="GET">
           <input type="hidden" name="offer" value="50-off-windows" />
           <input type="hidden" name="utm_source" />
           <input type="hidden" name="utm_medium" />
           <input type="hidden" name="utm_campaign" />
           <input type="hidden" name="gclid" />
 
-          <div class="field">
-            <input type="text" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="ZIP Code" aria-label="ZIP Code" autocomplete="postal-code" required />
-            <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
+          <div class="form-step is-active" data-step="1">
+            <h3 class="fs-title">Where is your project?</h3>
+            <div class="field">
+              <input type="text" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="ZIP Code" aria-label="ZIP Code" autocomplete="postal-code" required />
+              <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn-step btn-next" data-next>Continue →</button>
+            </div>
           </div>
 
-          <button type="submit" class="btn-submit-full">Continue →</button>
+          <div class="form-step" data-step="2">
+            <h3 class="fs-title">Who are we speaking with?</h3>
+            <div class="field-row field-name-row">
+              <div class="field">
+                <input type="text" name="first_name" placeholder="First Name" aria-label="First Name" autocomplete="given-name" required />
+                <span class="field-error">Please enter your first name.</span>
+              </div>
+              <div class="field">
+                <input type="text" name="last_name" placeholder="Last Name" aria-label="Last Name" autocomplete="family-name" required />
+                <span class="field-error">Please enter your last name.</span>
+              </div>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn-step btn-back" data-back>← Back</button>
+              <button type="button" class="btn-step btn-next" data-next>Continue →</button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <h3 class="fs-title">What is your home address?</h3>
+            <div class="field">
+              <input type="text" name="address" placeholder="Street Address" aria-label="Street Address" autocomplete="address-line1" required />
+              <span class="field-error">Please enter your street address.</span>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn-step btn-back" data-back>← Back</button>
+              <button type="button" class="btn-step btn-next" data-next>Continue →</button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="4">
+            <h3 class="fs-title">How can we reach you?</h3>
+            <div class="field">
+              <input type="email" name="email" placeholder="Email Address" aria-label="Email Address" autocomplete="email" required />
+              <span class="field-error">Please enter a valid email address.</span>
+            </div>
+            <div class="field">
+              <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number" autocomplete="tel" inputmode="tel" required />
+              <span class="field-error">Please enter a valid 10-digit phone number.</span>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn-step btn-back" data-back>← Back</button>
+              <button type="submit" class="btn-step btn-submit">Get My Free Estimate →</button>
+            </div>
+          </div>
         </form>
 
         <p class="quote-card-trust">
@@ -1068,6 +1113,97 @@
     }
 
     function fieldWrap(input) { return input.closest('.field'); }
+
+    // Hero quote card — inline multi-step form
+    var heroForm = document.getElementById('heroQuoteForm');
+    if (heroForm) {
+      utmKeys.forEach(function (key) {
+        var el = heroForm.querySelector('input[name="' + key + '"]');
+        if (el && params.get(key)) el.value = params.get(key);
+      });
+
+      var qcSteps = Array.prototype.slice.call(heroForm.querySelectorAll('.form-step'));
+      var qcDots = Array.prototype.slice.call(document.querySelectorAll('#qpSteps .qp-dot'));
+      var qcLines = Array.prototype.slice.call(document.querySelectorAll('#qpSteps .qp-line'));
+      var qcCurrent = 1;
+
+      function qcValidateStep(stepEl) {
+        var inputs = stepEl.querySelectorAll('input[required]');
+        var valid = true;
+        inputs.forEach(function (input) {
+          var wrap = fieldWrap(input);
+          var ok = input.checkValidity();
+          if (input.name === 'phone' && ok) {
+            var digits = input.value.replace(/\D/g, '');
+            if (digits.length < 10) ok = false;
+          }
+          if (wrap) wrap.classList.toggle('has-error', !ok);
+          if (!ok) valid = false;
+        });
+        return valid;
+      }
+
+      function qcGoToStep(n) {
+        qcSteps.forEach(function (stepEl) {
+          stepEl.classList.toggle('is-active', parseInt(stepEl.getAttribute('data-step'), 10) === n);
+        });
+        qcCurrent = n;
+        qcDots.forEach(function (dot, i) { dot.classList.toggle('is-active', i + 1 <= n); });
+        qcLines.forEach(function (line, i) { line.classList.toggle('is-active', i + 1 < n); });
+      }
+
+      heroForm.addEventListener('click', function (e) {
+        if (e.target.matches('[data-next]')) {
+          var stepEl = e.target.closest('.form-step');
+          if (qcValidateStep(stepEl)) {
+            qcGoToStep(qcCurrent + 1);
+            var firstInput = qcSteps[qcCurrent - 1].querySelector('input');
+            if (firstInput) firstInput.focus({ preventScroll: true });
+          } else {
+            var firstError = stepEl.querySelector('.has-error input');
+            if (firstError) firstError.focus();
+          }
+        }
+        if (e.target.matches('[data-back]')) {
+          qcGoToStep(qcCurrent - 1);
+        }
+      });
+
+      heroForm.addEventListener('input', function (e) {
+        var wrap = fieldWrap(e.target);
+        if (wrap && wrap.classList.contains('has-error') && e.target.checkValidity()) {
+          wrap.classList.remove('has-error');
+        }
+      });
+
+      var qcZip = heroForm.querySelector('input[name="zip"]');
+      if (qcZip) {
+        qcZip.addEventListener('input', function () {
+          qcZip.value = qcZip.value.replace(/\D/g, '').slice(0, 5);
+        });
+      }
+
+      var qcPhone = heroForm.querySelector('input[name="phone"]');
+      if (qcPhone) {
+        qcPhone.addEventListener('input', function () {
+          var digits = qcPhone.value.replace(/\D/g, '').slice(0, 10);
+          var formatted = digits;
+          if (digits.length > 6) formatted = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+          else if (digits.length > 3) formatted = '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+          else if (digits.length > 0) formatted = '(' + digits;
+          qcPhone.value = formatted;
+        });
+      }
+
+      heroForm.addEventListener('submit', function (e) {
+        var lastStep = qcSteps[qcSteps.length - 1];
+        if (!qcValidateStep(lastStep)) {
+          e.preventDefault();
+          var firstError = lastStep.querySelector('.has-error input');
+          if (firstError) firstError.focus();
+        }
+      });
+    }
 
     document.querySelectorAll('.zip-form').forEach(function (form) {
       utmKeys.forEach(function (key) {
