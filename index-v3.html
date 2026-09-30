@@ -115,22 +115,17 @@
     gap: 16px;
   }
   .header-logo img { height: 30px; width: auto; }
-  .header-cta {
-    font-size: 14.5px;
-    padding: 11px 22px;
-  }
 
   @media (max-width: 880px) {
     .header-inner { height: 64px; }
     .header-logo img { height: 24px; }
-    .header-cta { font-size: 13.5px; padding: 9px 16px; }
   }
 
   /* ─── HERO (VIDEO) ─── */
   .hero-video-section { position: relative; background: #000; overflow: hidden; }
   .hero-bg-media {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; z-index: 0;
+    object-fit: cover; object-position: center 30%; transform: scale(1.12); z-index: 0;
   }
   .hero-video-overlay {
     position: absolute; inset: 0; z-index: 1;
@@ -145,7 +140,7 @@
   .promo-copy { min-width: 0; }
   .quote-card { background: var(--paper); border-radius: 14px; box-shadow: var(--shadow-float); overflow: hidden; }
   .brand-marquee {
-    max-width: 560px; overflow: hidden; margin-top: 10px;
+    overflow: hidden;
     -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
     mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
   }
@@ -170,7 +165,6 @@
   .promo-headline-break { display: inline; }
   @media (min-width: 641px) {
     .promo-eyebrow { font-size: 14px; }
-    .brand-marquee { max-width: 728px; }
     .brand-track img { height: 34px; width: 130px; margin-right: 57px; }
   }
 
@@ -212,7 +206,7 @@
 
   @media (max-width: 980px) {
     .hero-video-grid { grid-template-columns: 1fr; padding: 40px 20px 56px; }
-    .promo-headline, .brand-marquee { max-width: 100%; }
+    .promo-headline { max-width: 100%; }
     .quote-card { width: 100%; max-width: 460px; margin: 0 auto; }
   }
 
@@ -220,10 +214,9 @@
     .hero-video-grid { padding: 32px 18px 48px; gap: 20px; }
     .promo-copy { display: contents; text-align: center; }
     .promo-eyebrow { display: inline-flex; justify-content: center; order: 1; margin-bottom: 0; }
-    .promo-headline { font-size: 30px; order: 2; margin-bottom: 0; }
+    .promo-headline { font-size: 30px; order: 2; margin-bottom: 10px; }
     .promo-headline-break { display: block; }
     .quote-card { order: 3; }
-    .brand-marquee { order: 4; margin: 10px auto 0; }
   }
 
   /* ─── HERO ─── */
@@ -312,7 +305,7 @@
   .field { margin-bottom: 14px; }
   .field input, .field select {
     width: 100%; padding: 13px 14px;
-    border: 1.5px solid var(--line); border-radius: 10px;
+    border: 1.5px solid #B7BFC8; border-radius: 10px;
     font-family: var(--font-body); font-size: 15px; color: var(--ink);
     outline: none; background: var(--paper);
     transition: border-color .18s, box-shadow .18s;
@@ -546,7 +539,6 @@
     section.section { padding: 60px 0; }
     .header-inner { padding: 0 18px; justify-content: center; }
     .header-logo img { height: 30px; }
-    .header-cta { display: none; }
     .wrap { padding: 0 18px; }
     .hero-grid { padding: 130px 18px 134px; row-gap: 0; }
     .hero-copy { display: contents; text-align: center; }
@@ -584,7 +576,6 @@
     <a class="header-logo" href="#top" aria-label="Affordable Home">
       <img src="assets/logo.svg" alt="Affordable Home" />
     </a>
-    <a href="#estimate" class="btn btn-blue header-cta">Start Free Quote</a>
   </div>
 </header>
 
@@ -596,22 +587,6 @@
     <div class="promo-copy">
       <div class="promo-eyebrow"><span class="promo-stars">★★★★★</span> Trusted Nationwide</div>
       <h1 class="promo-headline">Save Up To 50% Off <span class="promo-headline-break">All Window Styles</span></h1>
-      <div class="brand-marquee" aria-label="Trusted local window installer brands">
-        <div class="brand-track">
-          <img src="assets/logos-v3/window-nation.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/lowes.png" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/champion.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/thompson-creek.webp" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/dabella.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/renuity.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/window-nation.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/lowes.png" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/champion.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/thompson-creek.webp" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/dabella.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos-v3/renuity.svg" alt="" aria-hidden="true" />
-        </div>
-      </div>
     </div>
 
     <div class="quote-card" id="estimate">
