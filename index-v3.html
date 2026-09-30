@@ -424,21 +424,6 @@
   .step-item h3 { color: var(--paper); font-size: 19px; font-weight: 700; margin-bottom: 10px; }
   .step-item p { color: rgba(255,255,255,.72); font-size: 14.5px; line-height: 1.65; max-width: 280px; }
 
-  /* ─── STAT STRIP ─── */
-  .stat-strip {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    background: var(--paper); border: 1px solid var(--line); border-radius: 18px;
-    overflow: hidden; margin-bottom: 56px;
-  }
-  .stat-cell { padding: 32px 20px; text-align: center; border-right: 1px solid var(--line); }
-  .stat-cell:last-child { border-right: none; }
-  .stat-figure {
-    font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #000000; margin-bottom: 6px;
-    line-height: 1.6; display: flex; align-items: center; justify-content: center; min-height: 1.6em;
-  }
-  .stat-figure-icon img { height: 0.82em; width: auto; filter: brightness(0); }
-  .stat-label { font-size: 12.5px; font-weight: 700; color: var(--stone); text-transform: uppercase; letter-spacing: .04em; }
-  .stat-cell:nth-child(2) .stat-label { color: #000000; }
 
   /* ─── VALUE PROPS (alternating rows) ─── */
   .value-head { max-width: 720px; margin: 0 auto 64px; text-align: center; }
@@ -529,9 +514,6 @@
     .value-row:nth-child(2) .value-content,
     .value-row:nth-child(3) .value-content { grid-column: auto; grid-row: auto; }
     .testi-grid { grid-template-columns: 1fr; }
-    .stat-strip { grid-template-columns: repeat(2, 1fr); }
-    .stat-cell:nth-child(2) { border-right: none; }
-    .stat-cell:nth-child(1), .stat-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
   }
 
   @media (max-width: 640px) {
@@ -713,7 +695,7 @@
   <div class="wrap">
     <div class="value-head">
       <h2 class="section-title"><span class="line-bold">Comparing Quotes Yourself?</span><br /><span class="line-light">We already did the work.</span></h2>
-      <p class="section-lead">We connect homeowners with top-rated professionals and exclusive offers so you get the best windows at the best price.</p>
+      <p class="section-lead">Get connected with top-rated professionals and exclusive offers and find the best windows at the best price.</p>
     </div>
 
     <div class="value-rows">
@@ -757,27 +739,6 @@
   <div class="wrap">
     <div class="section-head center">
       <h2 class="section-title"><span class="line-bold">Built for Homeowners and Backed by Results.</span></h2>
-    </div>
-
-    <div class="stat-strip">
-      <div class="stat-cell">
-        <div class="stat-figure">4.9★</div>
-        <div class="stat-label">Average Rating</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-figure stat-figure-icon" aria-hidden="true">
-          <img src="assets/usa-icon.png" alt="" />
-        </div>
-        <div class="stat-label">Serving Nationwide</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-figure">FREE</div>
-        <div class="stat-label">No-Obligation Quote</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-figure">1-Day</div>
-        <div class="stat-label">Avg. Installation</div>
-      </div>
     </div>
 
     <div class="testi-grid">
