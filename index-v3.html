@@ -206,9 +206,15 @@
   }
   .quote-card .btn-next, .quote-card .btn-submit { flex: 1; background: var(--lime); color: #FFFFFF; }
   .quote-card .btn-next:hover, .quote-card .btn-submit:hover { background: var(--lime-dim); }
-  .quote-card .btn-back { background: var(--forest-600); color: #FFFFFF; flex: 0 0 auto; }
-  .quote-card .btn-back:hover { background: var(--forest-800); }
   .quote-card .btn-step:active { transform: translateY(1px); }
+  .quote-card .btn-back-icon {
+    flex: 0 0 auto; width: 44px; min-height: 48px;
+    display: grid; place-items: center;
+    background: transparent; border: none; padding: 0;
+    color: var(--stone-light); cursor: pointer; transition: color .15s;
+  }
+  .quote-card .btn-back-icon:hover { color: var(--stone); }
+  .quote-card .btn-back-icon svg { width: 22px; height: 22px; }
 
   @media (max-width: 980px) {
     .hero-video-grid { grid-template-columns: 1fr; padding: 40px 20px 56px; }
@@ -604,6 +610,8 @@
 
           <div class="form-step is-active" data-step="1">
             <h3 class="fs-title">Where is your project?</h3>
+            <input type="hidden" name="city" />
+            <input type="hidden" name="state" />
             <div class="field">
               <input type="text" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="Zip Code" aria-label="ZIP Code" autocomplete="postal-code" required />
               <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
@@ -626,7 +634,9 @@
               </div>
             </div>
             <div class="step-actions">
-              <button type="button" class="btn-step btn-back" data-back>← Back</button>
+              <button type="button" class="btn-back-icon" data-back aria-label="Back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
               <button type="button" class="btn-step btn-next" data-next>Continue →</button>
             </div>
           </div>
@@ -638,7 +648,9 @@
               <span class="field-error">Please enter your street address.</span>
             </div>
             <div class="step-actions">
-              <button type="button" class="btn-step btn-back" data-back>← Back</button>
+              <button type="button" class="btn-back-icon" data-back aria-label="Back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
               <button type="button" class="btn-step btn-next" data-next>Continue →</button>
             </div>
           </div>
@@ -654,7 +666,9 @@
               <span class="field-error">Please enter a valid 10-digit phone number.</span>
             </div>
             <div class="step-actions">
-              <button type="button" class="btn-step btn-back" data-back>← Back</button>
+              <button type="button" class="btn-back-icon" data-back aria-label="Back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
               <button type="submit" class="btn-step btn-submit">Get My Free Estimate →</button>
             </div>
           </div>
@@ -912,6 +926,8 @@
 
             <div class="form-step is-active" data-step="1">
               <h3 class="fs-title">Where is your project?</h3>
+              <input type="hidden" name="city" />
+              <input type="hidden" name="state" />
               <div class="field">
                 <input type="text" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="Zip Code" aria-label="ZIP Code" autocomplete="postal-code" required />
                 <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
@@ -934,7 +950,9 @@
                 </div>
               </div>
               <div class="step-actions">
-                <button type="button" class="btn-step btn-back" data-back>← Back</button>
+                <button type="button" class="btn-back-icon" data-back aria-label="Back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
                 <button type="button" class="btn-step btn-next" data-next>Continue →</button>
               </div>
             </div>
@@ -946,7 +964,9 @@
                 <span class="field-error">Please enter your street address.</span>
               </div>
               <div class="step-actions">
-                <button type="button" class="btn-step btn-back" data-back>← Back</button>
+                <button type="button" class="btn-back-icon" data-back aria-label="Back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
                 <button type="button" class="btn-step btn-next" data-next>Continue →</button>
               </div>
             </div>
@@ -962,7 +982,9 @@
                 <span class="field-error">Please enter a valid 10-digit phone number.</span>
               </div>
               <div class="step-actions">
-                <button type="button" class="btn-step btn-back" data-back>← Back</button>
+                <button type="button" class="btn-back-icon" data-back aria-label="Back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
                 <button type="submit" class="btn-step btn-submit">Get My Free Estimate →</button>
               </div>
             </div>
@@ -1094,9 +1116,27 @@
       });
 
       var qcZip = heroForm.querySelector('input[name="zip"]');
+      var qcCity = heroForm.querySelector('input[name="city"]');
+      var qcState = heroForm.querySelector('input[name="state"]');
+      var qcLastLookedUpZip = '';
+      function qcLookupZip(zip) {
+        if (zip === qcLastLookedUpZip) return;
+        qcLastLookedUpZip = zip;
+        fetch('https://api.zippopotam.us/us/' + zip)
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (data) {
+            var place = data && data.places && data.places[0];
+            if (place && qcCity && qcState) {
+              qcCity.value = place['place name'] || '';
+              qcState.value = place['state abbreviation'] || '';
+            }
+          })
+          .catch(function () { /* non-blocking — form still works without city/state */ });
+      }
       if (qcZip) {
         qcZip.addEventListener('input', function () {
           qcZip.value = qcZip.value.replace(/\D/g, '').slice(0, 5);
+          if (qcZip.value.length === 5) qcLookupZip(qcZip.value);
         });
       }
 
