@@ -197,6 +197,7 @@
   .qp-line { flex: 1; height: 3px; background: #C7D0D9; margin: 0 6px; border-radius: 2px; transition: background .2s ease; }
   .qp-line.is-active { background: #2F4679; }
   .quote-card-trust { font-size: 12px; color: var(--stone); padding: 14px 20px 20px; text-align: center; }
+  .qct-break { display: inline; }
   .quote-card .field input { text-align: left; }
 
   .quote-card .form-step { display: none; animation: qcStepIn .32s ease; }
@@ -546,6 +547,7 @@
     .hero:not(.hero-cta-section) .headline-mobile-text { display: inline; }
     .hero-cta-section .hero-headline { margin-bottom: 6px; }
     .hero-form { order: 4; margin-top: 0; }
+    .qct-break { display: block; margin-top: 2px; }
 
     .hero:not(.hero-cta-section) .hero-rating { display: none; }
 
@@ -671,7 +673,7 @@
           </div>
         </form>
 
-        <p class="quote-card-trust">Free to compare • No obligation • Takes less than 1 minute</p>
+        <p class="quote-card-trust">Free to compare • No obligation <span class="qct-break">• Takes less than 1 minute</span></p>
       </div>
     </div>
   </div>
@@ -970,7 +972,7 @@
             </div>
           </form>
 
-          <p class="quote-card-trust">Free to compare • No obligation • Takes less than 1 minute</p>
+          <p class="quote-card-trust">Free to compare • No obligation <span class="qct-break">• Takes less than 1 minute</span></p>
         </div>
       </div>
     </div>
