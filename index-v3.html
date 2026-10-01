@@ -196,8 +196,7 @@
   .qp-dot.is-active:active { transform: translateY(1px); }
   .qp-line { flex: 1; height: 3px; background: #C7D0D9; margin: 0 6px; border-radius: 2px; transition: background .2s ease; }
   .qp-line.is-active { background: #2F4679; }
-  .quote-card-trust { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; font-size: 12px; color: var(--stone); padding: 14px 20px 20px; text-align: center; }
-  .quote-card-trust .qct-item { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .quote-card-trust { font-size: 12px; color: var(--stone); padding: 14px 20px 20px; text-align: center; }
   .quote-card .field input { text-align: left; }
 
   .quote-card .form-step { display: none; animation: qcStepIn .32s ease; }
@@ -407,6 +406,10 @@
   .adv-card p { font-size: 15px; color: var(--stone); line-height: 1.7; }
 
   .section-cta { text-align: center; margin-top: 48px; }
+  .cta-headline {
+    font-family: var(--font-display); font-size: 22px; font-weight: 700;
+    color: #000000; text-align: center; margin-bottom: 16px;
+  }
 
   /* ─── STEPS (dark, numbered) ─── */
   .steps-section { background: #2F4679; }
@@ -469,17 +472,18 @@
   }
   .value-content p { font-size: 15.5px; color: var(--stone); line-height: 1.7; }
 
-  .value-full-cta { margin-top: 64px; }
+  .value-full-cta { margin-top: 0; }
+  .value-full-cta-wrap { margin-top: 64px; text-align: center; }
 
   .section-title .line-bold { font-weight: 800; }
   .section-title .line-light { font-weight: 400; }
 
   /* ─── TESTIMONIALS ─── */
-  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .testi-card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 26px; box-shadow: var(--shadow-card); }
-  .testi-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 14px; }
-  .testi-card blockquote { font-size: 15px; color: var(--ink); line-height: 1.75; margin-bottom: 18px; }
-  .testi-name { font-size: 13.5px; font-weight: 700; color: #000000; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .testi-card { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 34px; box-shadow: var(--shadow-card); }
+  .testi-stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; margin-bottom: 16px; }
+  .testi-card blockquote { font-size: 17.5px; color: var(--ink); line-height: 1.7; margin-bottom: 20px; }
+  .testi-name { font-size: 15.5px; font-weight: 700; color: #000000; }
 
   /* ─── FAQ ─── */
   .faq-list { max-width: 760px; margin: 0 auto; }
@@ -672,16 +676,7 @@
           </div>
         </form>
 
-        <div class="quote-card-trust">
-          <span class="qct-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
-            Lifetime Warranty
-          </span>
-          <span class="qct-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
-            Financing Options
-          </span>
-        </div>
+        <p class="quote-card-trust">Free to compare • No obligation • Takes less than 1 minute</p>
       </div>
     </div>
   </div>
@@ -724,8 +719,8 @@
           <img src="assets/value-1-exterior-white.png" alt="Certified local installer fitting a new replacement window" />
         </div>
         <div class="value-content">
-          <h3>Certified Local Installers</h3>
-          <p>We match you with licensed, insured pros who know your area's homes and building codes.</p>
+          <h3>Vetted Local Installers</h3>
+          <p>Skip the search. We match you with licensed, insured pros serving your area.</p>
         </div>
       </div>
 
@@ -734,8 +729,8 @@
           <img src="assets/value-2-interior-living.png" alt="Bright living room with large white-framed replacement windows" />
         </div>
         <div class="value-content">
-          <h3>Top-Rated Windows</h3>
-          <p>Only durable, high-quality, energy efficient windows meet our standards.</p>
+          <h3>Quality Windows, Built to Last</h3>
+          <p>Compare durable, energy-efficient options backed by strong warranties.</p>
         </div>
       </div>
 
@@ -744,13 +739,16 @@
           <img src="assets/value-3-exterior-navy.png" alt="Navy blue home exterior with white-framed replacement windows" />
         </div>
         <div class="value-content">
-          <h3>Transparent Pricing</h3>
-          <p>Your estimate is itemized and exact, with the current promotion already applied.</p>
+          <h3>Clear, Competitive Quotes</h3>
+          <p>See your estimated project cost upfront, with no hidden fees or surprises.</p>
         </div>
       </div>
     </div>
 
-    <a href="#top" class="btn btn-orange btn-quote value-full-cta">Start Saving</a>
+    <div class="value-full-cta-wrap">
+      <h3 class="cta-headline">Find Local Offers in Less Than a Minute.</h3>
+      <a href="#top" class="btn btn-orange btn-quote value-full-cta">Start Saving</a>
+    </div>
   </div>
 </section>
 
@@ -793,45 +791,46 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <h3>Licensed &amp; Insured Pros</h3>
-        <p>Every installer in our network is vetted, licensed, and insured for your peace of mind.</p>
+        <p>Vetted professionals you can trust.</p>
       </div>
       <div class="adv-card">
         <div class="adv-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
         </div>
         <h3>Lifetime Warranty</h3>
-        <p>Materials and workmanship are covered for as long as you own your home.</p>
+        <p>Long-term protection for your investment.</p>
       </div>
       <div class="adv-card">
         <div class="adv-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
         </div>
         <h3>Fast, Clean Installation</h3>
-        <p>Most projects are completed in a single day, with a crew that respects your home.</p>
+        <p>Professional installation with minimal disruption.</p>
       </div>
       <div class="adv-card">
         <div class="adv-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
         </div>
         <h3>Energy-Efficient by Design</h3>
-        <p>Dual-pane glass and tight seals lower your utility bills year-round.</p>
+        <p>Designed to improve comfort and efficiency.</p>
       </div>
       <div class="adv-card">
         <div class="adv-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
         </div>
         <h3>Transparent Pricing</h3>
-        <p>Your itemized estimate is exact — no hidden fees, no surprises.</p>
+        <p>Clear estimates. No hidden surprises.</p>
       </div>
       <div class="adv-card">
         <div class="adv-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
         </div>
         <h3>Flexible Financing</h3>
-        <p>Qualify for 0 payments for up to 2 years on your new windows.</p>
+        <p>Affordable payment options available.</p>
       </div>
     </div>
     <div class="section-cta">
+      <h3 class="cta-headline">Find Local Offers in Less Than a Minute.</h3>
       <a href="#top" class="btn btn-orange btn-quote">Start Saving</a>
     </div>
   </div>
@@ -867,7 +866,7 @@
 <section class="section section-alt" id="faq">
   <div class="wrap">
     <div class="section-head center">
-      <h2 class="section-title">Questions, answered.</h2>
+      <h2 class="section-title">Everything You Need to Know</h2>
     </div>
     <div class="faq-list">
       <details class="faq-item">
@@ -898,7 +897,7 @@
 <section class="hero hero-cta-section">
   <div class="hero-grid">
     <div class="hero-copy">
-      <h2 class="hero-headline">Are You Ready to Save <span class="line-break">on New Windows?</span></h2>
+      <h2 class="hero-headline">Ready to See How Much <span class="line-break">You Could Save?</span></h2>
     </div>
 
     <div class="hero-form">
@@ -980,16 +979,7 @@
             </div>
           </form>
 
-          <div class="quote-card-trust">
-            <span class="qct-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
-              Lifetime Warranty
-            </span>
-            <span class="qct-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
-              Financing Options
-            </span>
-          </div>
+          <p class="quote-card-trust">Free to compare • No obligation • Takes less than 1 minute</p>
         </div>
       </div>
     </div>
