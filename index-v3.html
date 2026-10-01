@@ -179,11 +179,14 @@
   .qp-steps { display: flex; align-items: center; margin-bottom: 10px; }
   .qp-dot {
     flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
-    background: #D5DAE0; color: #FFFFFF;
-    font-size: 14px; font-weight: 800; display: grid; place-items: center;
-    transition: background .2s ease;
+    background: #D5DAE0; color: #FFFFFF; border: none; padding: 0;
+    font-family: var(--font-body); font-size: 14px; font-weight: 800; display: grid; place-items: center;
+    transition: background .2s ease, transform .12s ease;
+    cursor: not-allowed;
   }
-  .qp-dot.is-active { background: #2F4679; color: #FFFFFF; }
+  .qp-dot.is-active { background: #2F4679; color: #FFFFFF; cursor: pointer; }
+  .qp-dot.is-active:hover { background: #24365F; }
+  .qp-dot.is-active:active { transform: translateY(1px); }
   .qp-line { flex: 1; height: 3px; background: #E4E8EC; margin: 0 6px; border-radius: 2px; transition: background .2s ease; }
   .qp-line.is-active { background: #2F4679; }
   .quote-card-trust { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; font-size: 12px; color: var(--stone); padding: 14px 20px 20px; text-align: center; }
@@ -207,14 +210,6 @@
   .quote-card .btn-next, .quote-card .btn-submit { flex: 1; background: var(--lime); color: #FFFFFF; }
   .quote-card .btn-next:hover, .quote-card .btn-submit:hover { background: var(--lime-dim); }
   .quote-card .btn-step:active { transform: translateY(1px); }
-  .quote-card .btn-back-icon {
-    flex: 0 0 auto; width: 44px; min-height: 48px;
-    display: grid; place-items: center;
-    background: transparent; border: none; padding: 0;
-    color: var(--stone-light); cursor: pointer; transition: color .15s;
-  }
-  .quote-card .btn-back-icon:hover { color: var(--stone); }
-  .quote-card .btn-back-icon svg { width: 22px; height: 22px; }
 
   @media (max-width: 980px) {
     .hero-video-grid { grid-template-columns: 1fr; padding: 40px 20px 56px; }
@@ -591,13 +586,13 @@
       <div class="quote-card-body">
         <div class="quote-progress">
           <div class="qp-steps">
-            <div class="qp-dot is-active">1</div>
+            <button type="button" class="qp-dot is-active" data-goto="1">1</button>
             <div class="qp-line"></div>
-            <div class="qp-dot">2</div>
+            <button type="button" class="qp-dot" data-goto="2" disabled>2</button>
             <div class="qp-line"></div>
-            <div class="qp-dot">3</div>
+            <button type="button" class="qp-dot" data-goto="3" disabled>3</button>
             <div class="qp-line"></div>
-            <div class="qp-dot">4</div>
+            <button type="button" class="qp-dot" data-goto="4" disabled>4</button>
           </div>
         </div>
 
@@ -634,9 +629,6 @@
               </div>
             </div>
             <div class="step-actions">
-              <button type="button" class="btn-back-icon" data-back aria-label="Back">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
               <button type="button" class="btn-step btn-next" data-next>Continue →</button>
             </div>
           </div>
@@ -648,9 +640,6 @@
               <span class="field-error">Please enter your street address.</span>
             </div>
             <div class="step-actions">
-              <button type="button" class="btn-back-icon" data-back aria-label="Back">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
               <button type="button" class="btn-step btn-next" data-next>Continue →</button>
             </div>
           </div>
@@ -666,9 +655,6 @@
               <span class="field-error">Please enter a valid 10-digit phone number.</span>
             </div>
             <div class="step-actions">
-              <button type="button" class="btn-back-icon" data-back aria-label="Back">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
               <button type="submit" class="btn-step btn-submit">Get My Free Estimate →</button>
             </div>
           </div>
@@ -907,13 +893,13 @@
         <div class="quote-card-body">
           <div class="quote-progress">
             <div class="qp-steps">
-              <div class="qp-dot is-active">1</div>
+              <button type="button" class="qp-dot is-active" data-goto="1">1</button>
               <div class="qp-line"></div>
-              <div class="qp-dot">2</div>
+              <button type="button" class="qp-dot" data-goto="2" disabled>2</button>
               <div class="qp-line"></div>
-              <div class="qp-dot">3</div>
+              <button type="button" class="qp-dot" data-goto="3" disabled>3</button>
               <div class="qp-line"></div>
-              <div class="qp-dot">4</div>
+              <button type="button" class="qp-dot" data-goto="4" disabled>4</button>
             </div>
           </div>
 
@@ -950,10 +936,7 @@
                 </div>
               </div>
               <div class="step-actions">
-                <button type="button" class="btn-back-icon" data-back aria-label="Back">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-                <button type="button" class="btn-step btn-next" data-next>Continue →</button>
+                  <button type="button" class="btn-step btn-next" data-next>Continue →</button>
               </div>
             </div>
 
@@ -964,10 +947,7 @@
                 <span class="field-error">Please enter your street address.</span>
               </div>
               <div class="step-actions">
-                <button type="button" class="btn-back-icon" data-back aria-label="Back">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-                <button type="button" class="btn-step btn-next" data-next>Continue →</button>
+                  <button type="button" class="btn-step btn-next" data-next>Continue →</button>
               </div>
             </div>
 
@@ -982,10 +962,7 @@
                 <span class="field-error">Please enter a valid 10-digit phone number.</span>
               </div>
               <div class="step-actions">
-                <button type="button" class="btn-back-icon" data-back aria-label="Back">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-                <button type="submit" class="btn-step btn-submit">Get My Free Estimate →</button>
+                  <button type="submit" class="btn-step btn-submit">Get My Free Estimate →</button>
               </div>
             </div>
           </form>
@@ -1087,7 +1064,11 @@
           stepEl.classList.toggle('is-active', parseInt(stepEl.getAttribute('data-step'), 10) === n);
         });
         qcCurrent = n;
-        qcDots.forEach(function (dot, i) { dot.classList.toggle('is-active', i + 1 <= n); });
+        qcDots.forEach(function (dot, i) {
+          var reached = i + 1 <= n;
+          dot.classList.toggle('is-active', reached);
+          dot.disabled = !reached;
+        });
         qcLines.forEach(function (line, i) { line.classList.toggle('is-active', i + 1 < n); });
       }
 
@@ -1103,9 +1084,13 @@
             if (firstError) firstError.focus();
           }
         }
-        if (e.target.matches('[data-back]')) {
-          qcGoToStep(qcCurrent - 1);
-        }
+      });
+
+      qcDots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          if (dot.disabled) return;
+          qcGoToStep(parseInt(dot.getAttribute('data-goto'), 10));
+        });
       });
 
       heroForm.addEventListener('input', function (e) {
